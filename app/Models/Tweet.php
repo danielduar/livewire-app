@@ -10,8 +10,9 @@ class Tweet extends Model
 {
     use HasFactory;
 
-    protected $fillabe=[
-      'content'
+    protected $fillable  = [
+        'user_id',
+        'content'
     ];
 
     /**
