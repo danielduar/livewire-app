@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Tweet extends Model
 {
@@ -12,4 +13,13 @@ class Tweet extends Model
     protected $fillabe=[
       'content'
     ];
+
+    /**
+     * Retorna o usuario a que pertence os tweets
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
