@@ -9,6 +9,10 @@ class ShowTweets extends Component
 {
     public $message = 'Isso é apenas um teste5';
 
+    protected $rules = [
+        'message' => 'required|min:3|max:25'
+    ];
+
     public function render()
     {
         $tweets = Tweet::with('user')->get();
@@ -19,6 +23,9 @@ class ShowTweets extends Component
 
     public function create()
     {
+
+        $this->validate();
+
         Tweet::create([
             'content' => $this->message,
             'user_id' => 1
@@ -27,3 +34,5 @@ class ShowTweets extends Component
         $this->message = '';
     }
 }
+
+
