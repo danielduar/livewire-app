@@ -58,4 +58,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Retorna os tweets que o usuario faz
+     */
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
 }

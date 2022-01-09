@@ -30,10 +30,16 @@ class ShowTweets extends Component
 
         $this->validate();
 
-        Tweet::create([
-            'content' => $this->message,
-            'user_id' => 1
+//        pega o usuário logado
+        auth()->user()->tweets()->create([
+            'message' => $this->message
         ]);
+
+
+//        Tweet::create([
+//            'content' => $this->message,
+//            'user_id' => auth()->user()->id
+//        ]);
 
         $this->message = '';
     }
