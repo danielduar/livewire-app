@@ -32,7 +32,7 @@ class ShowTweets extends Component
 
 //        pega o usuário logado
         auth()->user()->tweets()->create([
-            'message' => $this->message
+            'content' => $this->message
         ]);
 
 
