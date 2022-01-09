@@ -12,7 +12,7 @@ class Tweet extends Model
 
     protected $fillable  = [
         'user_id',
-        'content'
+        'message'
     ];
 
     /**
