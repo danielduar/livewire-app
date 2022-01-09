@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Tweet extends Model
+class Like extends Model
 {
     use HasFactory;
 
-    protected $fillable  = [
-        'user_id',
-        'content'
+    protected $fillable = [
+      'user_id',
+      'tweet_id'
     ];
 
     /**
-     * Retorna o usuario a que pertence os tweets
+     * Retorna o usuario que deu as curtidas
      * @return BelongsTo
      */
     public function user(): BelongsTo
@@ -26,11 +25,11 @@ class Tweet extends Model
     }
 
     /**
-     * Retortna os likes de um tweet
-     * @return HasMany
+     * Retorna os tweets curtidos pelo usuário 
+     * @return BelongsTo
      */
-    public function likes(): HasMany
+    public function tweet(): BelongsTo
     {
-        return $this->hasMany(Like::class);
+        return $this->belongsTo(Tweet::class);
     }
 }
