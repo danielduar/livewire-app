@@ -43,6 +43,29 @@ class ShowTweets extends Component
 
         $this->message = '';
     }
+
+    /**
+     * Ação de curtir o tweet
+     * @param $tweetId
+     */
+    public function likeTweet($tweetId)
+    {
+        $tweet = Tweet::find($tweetId);
+
+        $tweet->likes()->create([
+            'user_id'=>auth()->user()->id
+        ]);
+    }
+
+    /**
+     * Ação de descurtir o tweet
+     * @param Tweet $tweet
+     */
+    public function dislikeTweet(Tweet $tweet)
+    {
+
+        $tweet->likes()->delete();
+    }
 }
 
 
