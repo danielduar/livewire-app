@@ -36,10 +36,6 @@ class ShowTweets extends Component
         ]);
 
 
-//        Tweet::create([
-//            'content' => $this->message,
-//            'user_id' => auth()->user()->id
-//        ]);
 
         $this->message = '';
     }
